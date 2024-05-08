@@ -7,3 +7,21 @@
    height: 100vh;
    margin-inline: auto;
 }
+
+:root {
+   --color-text: #e0e0e0;
+   --color-placeholder: rgba(239, 239, 239, 0.588);
+   --color-additional: #93b1ff;
+   --color-additional7: rgba(147, 177, 255, 0.6);
+   --backgraund-color-calendar: #545454;
+   --backgraund-color-calendar-header: #bdbdbd;
+}
+
+.date-container {
+   font-size: 15px;
+   padding: 5px 25px;
+   margin-bottom: 15px;
+   border-radius: 15px;
+   color: var(--color-text);
+   background-color: var(--backgraund-color-calendar);
+}

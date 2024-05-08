@@ -1,5 +1,6 @@
 import React from "react";
 import { useCalendar } from "../hooks/useCalendar";
+import './Calendar.css'
 
 interface CalendarProps {
   locale?: string;
@@ -17,5 +18,13 @@ export const Calendar: React.FC<CalendarProps> = ({
   const { state } = useCalendar({ locale, selectedDate, firstWeekDay })
 
   console.log('state', state)
-  return <div>Calendar</div>;
+
+
+  return <div className="calendar">
+    <div className="calendar-header">
+      <div aria-hidden className="calendar-header-arrow-left" />
+      1122333
+      <div aria-hidden className="calendar-header-arrow-right" />
+    </div>
+  </div>;
 };
