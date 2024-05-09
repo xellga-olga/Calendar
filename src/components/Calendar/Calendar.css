@@ -3,14 +3,14 @@
    --color-placeholder: rgba(239, 239, 239, 0.588);
    --color-additional: #93b1ff;
    --color-additional7: rgba(147, 177, 255, 0.6);
-   --backgraund-color-calendar: #545454;
-   --backgraund-color-calendar-header: #bdbdbd;
+   --backgraund-color-calendar: #4f4f4f;
+   --backgraund-color-calendar-header: #878787;
 
    --image-arrow: url('../../static/images/arrow.png');
 }
 
 .calendar{
-   width: 200px;
+   width: 300px;
    border-radius: 5px;
    text-transform: capitalize;
    border-color: var(--backgraund-color-calendar);
@@ -45,5 +45,64 @@
    background-image: var(--image-arrow);
    width: 20px;
    height: 20px;
+}
+
+.calendar-body {
+   padding: 5px;
+   border-radius: 0 0 5px 5px;
+   background-color: var(--backgraund-color-calendar);
+}
+
+.calendar-week-names {
+   display: grid;
+   grid-template-columns: repeat(7, 1fr);
+   text-align: center;
+   align-items: center;
+   gap: 1px 1px;
+   height: 20px;
+   font-size: 8px;
+   color: var(--color-additional);
+   font-weight: 600;
+}
+
+.calendar-days {
+   display: grid;
+   align-items: center;
+   grid-template-rows: 1fr;
+   grid-template-columns: repeat(7, 1fr);
+   gap: 1px 1px;
+   font-size: 10px;
+   font-weight: 400;
+   color: var(--color-text);
+}
+
+.calendar-day {
+   cursor: pointer;
+   border-radius: 5px;
+   padding:13px 13px;
+}
+
+.calendar-day:hover {
+   background-color: var(--color-additional7);
+}
+
+.calendar-additional-day {
+   cursor: pointer;
+   padding: 13px;
+   font-weight: 300;
+   color: var(--color-placeholder);
+}
+
+.calendar-today-item {
+   background-color: var(--backgraund-color-calendar-header);
+}
+
+.calendar-selected-item {
+   color: var(--color-text);
+   background-color: var(--color-additional);
+}
+
+.calendar-selected-item:hover {
+   background-color: var(--color-additional);
 }
 

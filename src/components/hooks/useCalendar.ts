@@ -101,14 +101,14 @@ export const useCalendar = ({
     }
 
     for(let i = totalCalendarDays - numberOfNextDays; i < totalCalendarDays; i += 1) {
-      result [i] = nextMonthDays[i - totalCalendarDays + numberOfNextDays] 
+      result[i] = nextMonthDays[i - totalCalendarDays + numberOfNextDays] 
     }
 
-    return result
+    return result;
 
   }, [selectedMonth.year, selectedMonth.monthIndex, selectedYear]);
 
-  console.log(calendarDays)
+  
 
   return {
     state : {
@@ -120,6 +120,11 @@ export const useCalendar = ({
       selectedMonth,
       selectedYear,
       selectedYearInterval,
+    },
+
+    functions: {
+      setMode,
+      setSelectedDay
     }
   };
 };
