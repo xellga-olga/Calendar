@@ -44,7 +44,7 @@ export const Calendar: React.FC<CalendarProps> = ({
             {state.selectedYear}
           </div>
         )}
-        {state.mode === "days" && (
+        {state.mode === "years" && (
           <div>
             {state.selectedYearInterval[0]} -{" "}
             {state.selectedYearInterval[state.selectedYearInterval.length - 1]}
@@ -99,23 +99,26 @@ export const Calendar: React.FC<CalendarProps> = ({
         {state.mode === "monthes" && (
           <div className="calendar-pick-item-container">
             {state.monthesNames.map((monthesNames) => {
-              const isCurrentMonth = 
-                new Date().getMonth() === monthesNames.monthIndex && 
+              const isCurrentMonth =
+                new Date().getMonth() === monthesNames.monthIndex &&
                 new Date().getFullYear() === state.selectedYear;
 
-              const isSelectedMonth= monthesNames.monthIndex === state.selectedMonth.monthIndex
+              const isSelectedMonth =
+                monthesNames.monthIndex === state.selectedMonth.monthIndex;
 
               return (
                 <div
                   aria-hidden
                   onClick={() => {
-                    functions.setSelectedMonthByIndex(monthesNames.monthIndex)
-                    functions.setMode('days');
+                    functions.setSelectedMonthByIndex(monthesNames.monthIndex);
+                    functions.setMode("days");
                   }}
-                  className={["calendar-pick-item",
-                  isCurrentMonth ? 'calendar-today-item' : '',
-                  isSelectedMonth ? 'calendar-selected-item' : '',
-                ].join(" ")}>
+                  className={[
+                    "calendar-pick-item",
+                    isCurrentMonth ? "calendar-today-item" : "",
+                    isSelectedMonth ? "calendar-selected-item" : "",
+                  ].join(" ")}
+                >
                   {monthesNames.monthShort}
                 </div>
               );
@@ -123,9 +126,11 @@ export const Calendar: React.FC<CalendarProps> = ({
           </div>
         )}
 
-        {state.mode === 'years' && (
+        {state.mode === "years" && (
           <div className="calendar-pick-item-container">
-            <div className="calendar-unchoosable-year ">{state.selectedYearInterval[0] - 1}</div>
+            <div className="calendar-unchoosable-year ">
+              {state.selectedYearInterval[0] - 1}
+            </div>
             {state.selectedYearInterval.map((year) => {
               const isCurrentYear = new Date().getFullYear() === year;
               const isSelectedYear = year === state.selectedYear;
@@ -134,18 +139,24 @@ export const Calendar: React.FC<CalendarProps> = ({
                 <div
                   aria-hidden
                   onClick={() => {
-                    functions.setSelectedYear(year)
-                    functions.setMode('monthes');
+                    functions.setSelectedYear(year);
+                    functions.setMode("monthes");
                   }}
-                  className={["calendar-pick-item",
-                  isCurrentYear ? 'calendar-today-item' : '',
-                  isSelectedYear ? 'calendar-selected-item' : '',
-                ].join(" ")}>
+                  className={[
+                    "calendar-pick-item",
+                    isCurrentYear ? "calendar-today-item" : "",
+                    isSelectedYear ? "calendar-selected-item" : "",
+                  ].join(" ")}
+                >
                   {year}
                 </div>
               );
             })}
-            <div className="calendar-unchoosable-year ">{state.selectedYearInterval[state.selectedYearInterval.length - 1] + 1}</div>
+            <div className="calendar-unchoosable-year ">
+              {state.selectedYearInterval[
+                state.selectedYearInterval.length - 1
+              ] + 1}
+            </div>
           </div>
         )}
       </div>
